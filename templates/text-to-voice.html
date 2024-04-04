@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text to Speech</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  textarea {
+    width: 80%;
+    height: 100px;
+    margin: 20px auto;
+    resize: none;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <h1>Text to Speech</h1>
+  <textarea id="textToSpeak" placeholder="Type text here"></textarea>
+  <button onclick="speak()">Speak</button>
+  
+  <script>
+    function speak() {
+      var text = document.getElementById("textToSpeak").value;
+      var utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>

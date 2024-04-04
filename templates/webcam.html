@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition</title>
+    <link rel="stylesheet" href="static/webcam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <section class="converter">
+    <div class="video-analyzer">
+        <h1 class="heading"> <span>Emotion Recognition From Image/Video</span></h1>
+        <p>{{ack}}</p>
+        <form action="/videoanalysis" method="post" enctype="multipart/form-data">
+            <div class="file-content">
+                <label for="file">Choose Video File:</label><br>
+                <input type="file" id="file" class="file-choose" name="video" accept=" video/*">
+            </div>
+            <input type="submit" class="upload" value="Upload">
+            <div class="converter-container">
+                <p>Result</p>
+                <div class="video-op">
+                    {% for i in vdata %}
+                    <div>
+                        <h6>Time Stamp : {{i['Timestamp']}}</h6>
+                        <div class="emotions">
+                            {% for k in mdata %}
+                            <h6 id="{{k['Type']}}">{{k['Type']}} : {{k['Confidence']}}<span><p style="cursor: pointer;" onclick="speak('{{k['Type']}}','{{k['Confidence']}}')"><i class="fa-solid fa-volume-high"></i></p> </span></h6>
+
+                            {% for e in i['Face']['Emotions'] %}
+                            <div>
+                                <div class="emotion">
+                                    <h6>{{e['Type']}} : {{e['Confidence']}}</h6>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+        <form action="/imageanalysis" method="post" enctype="multipart/form-data">
+            <p>{{vack}}</p>
+            <div class="file-content">
+                <label for="file">Choose Image File:</label><br>
+                <input type="file" id="file" class="file-choose" name="face" accept="image/*">
+            </div>
+            <input type="submit" class="upload" value="Upload">
+            <div class="converter-container">
+                <p>Result</p>
+                <h6 id="{{higest['Type']}}">{{higest['Type']}} : {{higest['Confidence']}}<span><p style="cursor: pointer;" onclick="speak('{{higest['Type']}}','{{higest['Confidence']}}')"><i class="fa-solid fa-volume-high"></i></p> </span></h6>
+
+                {% for i in data %}
+                <div>
+                    <div class="emotion">
+                        <h6 id="{{i['Type']}}">{{i['Type']}} : {{i['Confidence']}}</h6>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+    <script>
+        function speak(type,text){
+            
+            var utterance = new SpeechSynthesisUtterance();
+            utterance.text = "this face contains "+type+"emotion having "+text+"percentage";
+            utterance.lang = 'en-US'
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+</section>
+</body>
+</html>
+

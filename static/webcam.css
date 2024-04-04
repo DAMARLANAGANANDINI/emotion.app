@@ -1,0 +1,173 @@
+:root{
+    --green:#080808;
+    --black:#444;
+    --light-color:#d2cece;
+    --box-shadow:.5rem .5rem 0 rgba(198, 218, 214, 0.2);
+    --text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .2);
+    --border:.2rem solid var(--green);
+
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    transition: all .2s ease-out;
+    text-decoration: none;
+
+}
+
+*,*:after,*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+    font-size: 40px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px;
+    color: #000;
+}
+
+
+html{
+    font-size: 70.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+    background: #acc9e8;
+}
+
+.heading {
+    text-align: center;
+    padding-bottom: 2rem;
+    text-align:center;
+    text-transform: uppercase;
+    color: var(--black);
+    font-size: 5rem;
+    letter-spacing: .4rem;
+}
+
+.heading span{ 
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.converter {
+    background: transparent;
+    width: 100%;
+}
+
+.converter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(185, 216, 246);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#convert_text {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 500px;
+    color: #fff;
+}
+
+p {
+    color: black;
+    font-size: 18px;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+
+button {
+    padding: 12px 20px;
+    background: #0ea4da;
+    font-size: 15px;
+    font-weight: 500;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.video-analyzer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.file-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    color: black;
+    margin: 0;
+}
+
+.file-choose {
+    width: 200px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+input {
+    width: 150px;
+    height: 30px;
+}
+
+.upload {
+    background-color: #0ea4da;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 70vw;
+    height: 30vh;
+}
